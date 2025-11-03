@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'entries/css/entries.css' %}">
+{% endblock %}
+{% block main_content %}
+<a href="{% url 'entry_new' %}" class="btn__new-entry">Add new entry</a>
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+<div class="entries__list">
+    {% for entry in entries %}
+    {% include "entries/components/entry_card.html" with entry=entry %}
+    {% endfor %}
+</div>
+{% endblock %}

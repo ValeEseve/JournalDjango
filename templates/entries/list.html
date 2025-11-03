@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<p>Entries list</p>
+<div class="entries__list">
+{% for entry in entries %}
+    {% include "entries/components/entry_card.html" with entry=entry %}
+{% endfor %}
+</div>
+{% endblock %}

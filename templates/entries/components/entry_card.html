@@ -1,4 +1,31 @@
-<article class="entry_card">
-    
+<article class="entry-card">
+    <div class="entry-card__header">
+        <div class="entry-card__header-mood">
+            {{ entry.mood}}
 
+        </div>
+        <div class="entry-card__header-title">
+            {{ entry.title}}
+
+        </div>
+        <div class="entry-card__header-weather">
+            {{ entry.weather}}
+
+        </div>
+        <div class="entry-card__header-weather_icon">
+            {{ entry.weather_icon}}
+        </div>
+    </div>
+    <div class="entry-card__content">
+        <div class="entry-card__content-text">
+            {{ entry.content|linebreaksbr|truncatechars:120 }}
+        </div>
+
+        <div class="entry-card__content-dates">
+            <p>created
+            {{ entry.created_at|date:"D j, y, h:i"}}</p>
+            <p>modified
+            {{ entry.updated_at|date:"D j, y, h:i"}}</p>
+        </div>
+    </div>
 </article>
